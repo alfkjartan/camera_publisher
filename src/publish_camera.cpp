@@ -24,7 +24,12 @@ int main(int argc, char** argv) {
   ros::NodeHandle nh;
   image_transport::ImageTransport it(nh);
   image_transport::Publisher pub = it.advertise("camera/image", 1);
-  ros::Rate loop_rate(20);
+
+  double frame_rate = 20;
+  nh.getParam("/frame_rate", frame_rate);
+  ROS_INFO("Setting frame rate to %f frames/s", frame_rate);
+    
+  ros::Rate loop_rate(frame_rate);
   while (ros::ok()) {
     cap >> img;
     sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", img).toImageMsg();

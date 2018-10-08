@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <launch>
+  <arg name="frame_rate" default="20"/>
+  <arg name="jpeg_quality" default="32"/>
+    
+  <param name="camera/image/compressed/jpeg_quality" type="int" value="$(arg jpeg_quality)" />
+  <param name="frame_rate" type="double" value="$(arg frame_rate)" />
     <node name="cam_pub" pkg="camera_publisher"
-          type="camera_publisher_node">
+          type="camera_publisher_node" output="screen">
     </node>
 </launch>
