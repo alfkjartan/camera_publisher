@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <node name="impub" pkg="comp_vision"
-          type="comp_vision_node">
+    <node name="cam_pub" pkg="camera_publisher"
+          type="camera_publisher_node">
     </node>
 </launch>
