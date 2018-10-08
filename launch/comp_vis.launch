@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="impub" pkg="comp_vision"
+          type="comp_vision_node">
+    </node>
+</launch>
